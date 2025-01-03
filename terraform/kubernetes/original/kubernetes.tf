@@ -23,7 +23,7 @@ resource "lxd_profile" "config" {
     "security.privileged"  = 1
     "security.nesting"     = 1
     "boot.autostart"       = 1
-    "linux.kernel_modules" = "ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay,br_netfilter"
+    "linux.kernel_modules" = "ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay,br_netfilter,rbd"
     "raw.lxc"              = <<EOF
 lxc.apparmor.profile=unconfined
 lxc.mount.auto=proc:rw sys:rw cgroup:rw
@@ -94,7 +94,7 @@ resource "lxd_profile" "worker_config" {
 //     "security.privileged"  = 1
 //     "security.nesting"     = 1
 //     "boot.autostart"       = 1
-//     "linux.kernel_modules" = "ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay,br_netfilter"
+//     "linux.kernel_modules" = "ip_vs,ip_vs_rr,ip_vs_wrr,ip_vs_sh,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay,br_netfilter,rbd"
 //     "raw.lxc"              = <<EOF
 // lxc.apparmor.profile=unconfined
 // lxc.mount.auto=proc:rw sys:rw cgroup:rw
@@ -183,7 +183,7 @@ resource "lxd_container" "kubernetes" {
   // config = {
   //   "security.privileged"  = 1
   //   "security.nesting"     = 1
-  //   "linux.kernel_modules" = "ip_tables,ip6_tables,netlink_diag,nf_nat,overlay"
+  //   "linux.kernel_modules" = "ip_tables,ip6_tables,netlink_diag,nf_nat,overlay,rbd"
   //   "raw.lxc"              = "lxc.apparmor.profile = unconfined"
   // }
 
